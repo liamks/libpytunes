@@ -34,6 +34,8 @@ class Library:
 			if attributes.get('Rating'):
 				s.rating = int(attributes.get('Rating'))
 			if attributes.get('Play Count'):
-				s.play_count = int(attributes.get('Play Count'))			
+				s.play_count = int(attributes.get('Play Count'))
+			if attributes.get('Location'):
+				s.location = attributes.get('Location')			
 			songs.append(s)
 		return songs
