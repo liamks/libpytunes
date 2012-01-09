@@ -38,4 +38,5 @@ class Library:
 			if attributes.get('Location'):
 				s.location = attributes.get('Location')			
 			songs.append(s)
+			s.compilation = 'Compilation' in attributes
 		return songs
