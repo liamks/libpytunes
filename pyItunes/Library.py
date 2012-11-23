@@ -11,7 +11,7 @@ class Library:
 			s = Song()
 			s.name = attributes.get('Name')
 			s.artist = attributes.get('Artist')
-			s.album_artist = attributes.get('Album Aritst')
+			s.album_artist = attributes.get('Album Artist')
 			s.composer = attributes.get('Composer')
 			s.album = attributes.get('Album')
 			s.genre = attributes.get('Genre')

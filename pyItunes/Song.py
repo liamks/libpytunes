@@ -3,7 +3,7 @@ class Song:
 	Song Attributes:
 	name (String)
 	artist (String)
-	album_arist (String)
+	album_artist (String)
 	composer = None (String)
 	album = None (String)
 	genre = None (String)
@@ -25,7 +25,7 @@ class Song:
 	"""
 	name = None
 	artist = None
-	album_arist = None
+	album_artist = None
 	composer = None
 	album = None
 	genre = None

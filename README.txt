@@ -24,7 +24,7 @@ Attributes of the Song class:
 Song Attributes:
 name (String)
 artist (String)
-album_arist (String)
+album_artist (String)
 composer = None (String)
 album = None (String)
 genre = None (String)
