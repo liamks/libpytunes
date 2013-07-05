@@ -22,6 +22,7 @@ class Song:
 	play_count = None (Integer)
 	location = None (String)
 	compilation = None (Boolean)
+	grouping = None (String)
 	"""
 	name = None
 	artist = None
@@ -44,5 +45,6 @@ class Song:
 	play_count = None
 	location = None
 	compilation = None
+	grouping = None
 	
 	#title = property(getTitle,setTitle)
