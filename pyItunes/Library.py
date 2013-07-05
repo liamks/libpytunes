@@ -16,6 +16,7 @@ class Library:
 			s.album = attributes.get('Album')
 			s.genre = attributes.get('Genre')
 			s.kind = attributes.get('Kind')
+			s.grouping = attributes.get('Grouping')
 			if attributes.get('Size'):
 				s.size = int(attributes.get('Size'))
 			s.total_time = attributes.get('Total Time')
