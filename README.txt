@@ -4,8 +4,8 @@ Contributors by Liam Kaufman (liamkaufman.com), Steven Miller (copart), dpchu, s
 Date: October 5th 2013
 Version 0.2
 
-
-Before using pyItunes it is recommended that you backup your Itunes Library XML file. Use pyItunes at your own risk, there is no guarantee that it works or will not blow-up your computer!
+Before using pyItunes it is recommended that you backup your Itunes Library XML file.
+Use pyItunes at your own risk, there is no guarantee that it works or will not blow-up your computer!
 
 Usage:
 ========
@@ -19,7 +19,8 @@ for song in l.songs:
 	if song.rating > 80:
 		print song.name
 
-#NEW since 0.2, aads ability to get playlists, however, the songs dictionary is keyed on TrackID (as codes in iTunes xml)
+#NEW since 0.2, aads ability to get playlists,
+#however, the songs dictionary is keyed on TrackID (as codes in iTunes xml)
 
 from pyItunes import *
 
