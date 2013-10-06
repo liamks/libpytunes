@@ -23,6 +23,8 @@ class Song:
 	location = None (String)
 	compilation = None (Boolean)
 	grouping = None (String)
+	lastplayed = None (Time)
+	length = None (Integer)
 	"""
 	name = None
 	artist = None
@@ -46,5 +48,7 @@ class Song:
 	location = None
 	compilation = None
 	grouping = None
+	lastplayed = None
+	length = None
 	
 	#title = property(getTitle,setTitle)
