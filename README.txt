@@ -1,14 +1,15 @@
 pyItunes
-created by Liam Kaufman
-liamkaufman.com
-Date: March 15th 2009
-Version 0.1
+Created by Liam Kaufman (liamkaufman.com)
+Contributors by Liam Kaufman (liamkaufman.com), Steven Miller (copart), dpchu, selftext, z4r, pschorf
+Date: October 5th 2013
+Version 0.2
 
 
 Before using pyItunes it is recommended that you backup your Itunes Library XML file. Use pyItunes at your own risk, there is no guarantee that it works or will not blow-up your computer!
 
 Usage:
 ========
+#DEPRECIATED LEGACY METHOD, still works for now
 from pyItunes import *
 
 pl = XMLLibraryParser("iTunes Music Library.xml")
@@ -17,7 +18,23 @@ l = Library(pl.dictionary)
 for song in l.songs:
 	if song.rating > 80:
 		print song.name
-	
+
+#NEW since 0.2, aads ability to get playlists, however, the songs dictionary is keyed on TrackID (as codes in iTunes xml)
+
+from pyItunes import *
+
+l = Library("iTunes Music Library.xml")
+
+for id,song in l.songs.items():
+	if song.rating > 80:
+		print song.name
+
+playlists=l.getPlaylistNames()
+
+for song in l.getPlaylist(playlists[0]).tracks:
+	print "[%d] %s - %s" % (song.number,song.artist,song.name)
+
+
 =======
 
 Attributes of the Song class:
@@ -43,3 +60,6 @@ album_rating = None (Integer)
 play_count = None (Integer)
 location = None (String)
 compilation = None (Boolean)
+grouping = None (String)
+lastplayed = None (Time)
+length = None (Integer)
