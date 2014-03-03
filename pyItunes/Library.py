@@ -44,6 +44,12 @@ class Library:
 				s.size = int(attributes.get('Size'))
 			s.total_time = attributes.get('Total Time')
 			s.track_number = attributes.get('Track Number')
+			if attributes.get('Track Count'):
+				s.track_count = int(attributes.get('Track Count'))
+			if attributes.get('Disc Number'):
+				s.disc_number = int(attributes.get('Disc Number'))
+			if attributes.get('Disc Count'):
+				s.disc_count = int(attributes.get('Disc Count'))
 			if attributes.get('Year'):
 				s.year = int(attributes.get('Year'))
 			if attributes.get('Date Modified'):
