@@ -5,10 +5,8 @@ class PlTrack:
 	length = None
 	number = None
 	album = None
-	
+
 class Playlist:
-	name = None
-	tracks = []
 	def __init__(self,playListName=None):
 		self.name = playListName
-
+		self.tracks = []
