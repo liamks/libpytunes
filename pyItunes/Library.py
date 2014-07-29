@@ -14,10 +14,11 @@ except ImportError:
 	pass
 
 class Library:
-	def __init__(self,itunesxml,musicPathXML=None,musicPathSystem=None):
+	def __init__(self,itunesxml,musicPathXML=None,musicPathSystem=None,filesOnly=False):
 		#musicPathXML and musicPathSystem will do path conversion for when xml is being processed on different OS then iTunes
 		self.musicPathXML = musicPathXML
 		self.musicPathSystem = musicPathSystem
+		self.filesOnly = filesOnly
 		if type(itunesxml) == str:
 			self.il = plistlib.readPlist(itunesxml) #Much better support of xml special characters
 			self.legacymode = False
@@ -77,10 +78,16 @@ class Library:
 				s.length = int(attributes.get('Total Time'))
 			if attributes.get('Grouping'):
 				s.grouping = attributes.get('Grouping')
-			if self.legacymode:
-				self.songs.append(s)
-			else:
-				self.songs[int(trackid)] = s
+			if self.filesOnly==True and attributes.get('Track Type') == 'File':
+				if self.legacymode:
+					self.songs.append(s)
+				else:
+					self.songs[int(trackid)] = s
+			elif self.filesOnly==False:
+				if self.legacymode:
+					self.songs.append(s)
+				else:
+					self.songs[int(trackid)] = s
 	
 	def getPlaylistNames(self,ignoreList=("Library","Music","Movies","TV Shows","Purchased","iTunes DJ","Podcasts")):
 		if (self.legacymode):
