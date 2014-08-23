@@ -4,8 +4,6 @@ Created by Liam Kaufman (liamkaufman.com)
 
 Contributions by Liam Kaufman (liamkaufman.com), Steven Miller (copart), dpchu, selftext, z4r, pschorf
 
-Version 0.2: October 5th 2013
-
 **Before using pyItunes it is recommended that you backup your Itunes Library XML file. Use pyItunes at your own risk - there is no guarantee that it works or will not blow-up your computer!**
 
 ## Usage:
@@ -52,7 +50,7 @@ len(l.songs)
 
 May report a higher number than the song count shown in iTunes itself. This is because
 iTunes does not count things like Podcasts and Voice Memos as "Music," whereas
-pyitunes counts **all** tracks. 
+pyitunes counts **all** tracks.
 
 Version 0.2 adds the ability to get playlists. However, the songs dictionary is keyed on TrackID (as coded in iTunes xml).
 
