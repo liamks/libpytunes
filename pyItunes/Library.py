@@ -121,6 +121,7 @@ class Library:
 							t.album = self.songs[id].album
 							t.length = self.songs[id].length
 							t.location = self.songs[id].location
+							t.rating = self.songs[id].rating
 							#album
 							tracknum+=1
 							p.tracks.append(t)
