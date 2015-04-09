@@ -2,7 +2,7 @@
 
 Created by Liam Kaufman (liamkaufman.com)
 
-Contributions by Liam Kaufman (liamkaufman.com), Steven Miller (copart), dpchu, selftext, z4r, pschorf
+Contributions by Liam Kaufman (liamkaufman.com), Steven Miller (copart), dpchu, selftext, z4r, pschorf, Mathew Bramson (mbramson)
 
 **Before using pyItunes it is recommended that you backup your Itunes Library XML file. Use pyItunes at your own risk - there is no guarantee that it works or will not blow-up your computer!**
 
@@ -85,4 +85,15 @@ compilation = None (Boolean)
 grouping = None (String)
 lastplayed = None (Time)
 length = None (Integer)
+```
+
+Song object attributes can be iterated through like this:
+```
+for key,value in SongItem:
+	<interact with specific key,value pair>.
+```
+
+You can also convert songs directly to Dictionaries with the ToDict() Method.
+```
+SongDictionary = SongItem.ToDict()
 ```
