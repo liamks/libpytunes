@@ -122,7 +122,7 @@ class Library:
 						for track in playlist['Playlist Items']:
 							id=int(track['Track ID'])
 							t = self.songs[id]
-							t.number = tracknum #Should this be renamed to playlist_number?
+							t.playlist_order = tracknum
 							tracknum+=1
 							p.tracks.append(t)
 					return p
