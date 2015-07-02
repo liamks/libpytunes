@@ -2,7 +2,7 @@
 
 Created by Liam Kaufman (liamkaufman.com)
 
-Contributions by Liam Kaufman (liamkaufman.com), Steven Miller (copart), dpchu, selftext, z4r, pschorf, Mathew Bramson (mbramson)
+Contributions by Liam Kaufman (liamkaufman.com), Steven Miller (copart), dpchu, selftext, z4r, pschorf, Mathew Bramson (mbramson), Roger Filmyer (rfilmyer)
 
 **Before using pyItunes it is recommended that you backup your Itunes Library XML file. Use pyItunes at your own risk - there is no guarantee that it works or will not blow-up your computer!**
 
