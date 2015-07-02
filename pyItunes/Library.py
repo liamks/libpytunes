@@ -75,11 +75,7 @@ class Library:
 				s.location = attributes.get('Location')
 				s.location = urlparse.unquote(urlparse.urlparse(attributes.get('Location')).path[1:])
 				s.location = s.location.decode('utf-8') if PY2 else s.location # fixes bug #19
-				if ( self.musicPathXML is None or self.musicPathSystem is None ):
-					# s.location = text_type(urlparse.unquote(urlparse.urlparse(attributes.get('Location')).path[1:]),"utf8")
-					pass
-				else:
-					# s.location = text_type(urlparse.unquote(urlparse.urlparse(attributes.get('Location')).path[1:]).replace(self.musicPathXML,self.musicPathSystem),"utf8")
+				if ( self.musicPathXML is not None and self.musicPathSystem is not None ):
 					s.location = s.location.replace(self.musicPathXML,self.musicPathSystem)
 			s.compilation = 'Compilation' in attributes
 			if attributes.get('Play Date UTC'):
