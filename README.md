@@ -53,7 +53,9 @@ iTunes does not count things like Podcasts and Voice Memos as "Music," whereas
 pyitunes counts **all** tracks.
 
 Version 0.2 adds the ability to get playlists. However, the songs dictionary is keyed on TrackID (as coded in iTunes xml).
-
+Playlists are lists of Song objects, with their order noted as a `playlist_order` attribute.
+(note that previously, playlists were lists of PlTrack objects, with their order noted as a `number` attribute. 
+PlTracks have been removed in favor of modified Songs.)
 
 ### Attributes of the Song class:
 
@@ -86,6 +88,12 @@ grouping = None (String)
 lastplayed = None (Time)
 length = None (Integer)
 ```
+
+Songs retrieved as part of a playlist have an additional attribute:
+```
+playlist_order = None (Integer)
+```
+
 
 Song object attributes can be iterated through like this:
 ```
