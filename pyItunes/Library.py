@@ -3,7 +3,7 @@ from pyItunes.Playlist import Playlist,PlTrack
 import time
 import plistlib
 from six.moves.urllib import parse as urlparse
-from six import text_type
+from six import PY2
 #import urlparse
 import time
 import urllib
@@ -72,12 +72,11 @@ class Library:
 			if attributes.get('Play Count'):
 				s.play_count = int(attributes.get('Play Count'))
 			if attributes.get('Location'):
-				if ( self.musicPathXML is None or self.musicPathSystem is None ):
-					# s.location = text_type(urlparse.unquote(urlparse.urlparse(attributes.get('Location')).path[1:]),"utf8")
-					s.location = text_type(urlparse.unquote(urlparse.urlparse(attributes.get('Location')).path[1:]))
-				else:
-					# s.location = text_type(urlparse.unquote(urlparse.urlparse(attributes.get('Location')).path[1:]).replace(self.musicPathXML,self.musicPathSystem),"utf8")
-					s.location = text_type(urlparse.unquote(urlparse.urlparse(attributes.get('Location')).path[1:]).replace(self.musicPathXML,self.musicPathSystem))
+				s.location = attributes.get('Location')
+				s.location = urlparse.unquote(urlparse.urlparse(attributes.get('Location')).path[1:])
+				s.location = s.location.decode('utf-8') if PY2 else s.location # fixes bug #19
+				if ( self.musicPathXML is not None and self.musicPathSystem is not None ):
+					s.location = s.location.replace(self.musicPathXML,self.musicPathSystem)
 			s.compilation = 'Compilation' in attributes
 			if attributes.get('Play Date UTC'):
 				s.lastplayed = time.strptime(str(attributes.get('Play Date UTC')),format)
