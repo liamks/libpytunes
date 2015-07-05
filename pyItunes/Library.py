@@ -1,5 +1,5 @@
 from pyItunes.Song import Song
-from pyItunes.Playlist import Playlist,PlTrack
+from pyItunes.Playlist import Playlist
 import time
 import plistlib
 from six.moves.urllib import parse as urlparse
@@ -120,15 +120,8 @@ class Library:
 					if 'Playlist Items' in playlist:
 						for track in playlist['Playlist Items']:
 							id=int(track['Track ID'])
-							t = PlTrack()
-							t.number = tracknum
-							t.name = self.songs[id].name
-							t.artist = self.songs[id].artist
-							t.album = self.songs[id].album
-							t.length = self.songs[id].length
-							t.location = self.songs[id].location
-							t.rating = self.songs[id].rating
-							#album
+							t = self.songs[id]
+							t.playlist_order = tracknum
 							tracknum+=1
 							p.tracks.append(t)
 					return p
