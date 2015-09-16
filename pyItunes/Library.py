@@ -66,7 +66,7 @@ class Library:
 				s.bit_rate = int(attributes.get('Bit Rate'))
 			if attributes.get('Sample Rate'):
 				s.sample_rate = int(attributes.get('Sample Rate'))
-			s.comments = attributes.get("Comments	")
+			s.comments = attributes.get("Comments")
 			if attributes.get('Rating'):
 				s.rating = int(attributes.get('Rating'))
 			if attributes.get('Play Count'):
