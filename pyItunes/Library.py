@@ -4,8 +4,6 @@ import time
 import plistlib
 from six.moves.urllib import parse as urlparse
 from six import PY2
-#import urlparse
-import time
 import urllib
 import logging
 
@@ -34,7 +32,7 @@ class Library:
 			self.legacymode = True
 			self.songs = []
 		self.getSongs()
-	
+
 	def getSongs(self):
 		format = "%Y-%m-%d %H:%M:%S"
 		for trackid,attributes in self.il['Tracks'].items():
@@ -80,6 +78,10 @@ class Library:
 			s.compilation = 'Compilation' in attributes
 			if attributes.get('Play Date UTC'):
 				s.lastplayed = time.strptime(str(attributes.get('Play Date UTC')),format)
+			if attributes.get('Skip Count'):
+				s.skip_count = int(attributes.get('Skip Count'))
+			if attributes.get('Skip Date'):
+				s.skip_date = time.strptime(str(attributes.get('Skip Date')),format)
 			if attributes.get('Total Time'):
 				s.length = int(attributes.get('Total Time'))
 			if attributes.get('Grouping'):
@@ -94,7 +96,7 @@ class Library:
 					self.songs.append(s)
 				else:
 					self.songs[int(trackid)] = s
-	
+
 	def getPlaylistNames(self,ignoreList=("Library","Music","Movies","TV Shows","Purchased","iTunes DJ","Podcasts")):
 		if (self.legacymode):
 			logger.info("getPlaylistNames is disabled in legacy mode.")
@@ -105,7 +107,7 @@ class Library:
 				if playlist['Name'] not in ignoreList:
 					playlists.append(playlist['Name'])
 			return playlists
-	
+
 	def getPlaylist(self,playlistName):
 		if (self.legacymode):
 			logger.info("getPlaylist is disabled in legacy mode.")
@@ -141,4 +143,3 @@ class Library:
 		else:
 			logger.warning("xspf library missing, go to https://github.com/alastair/xspf to install.")
 			return None
-
