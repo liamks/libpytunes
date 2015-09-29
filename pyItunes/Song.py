@@ -51,17 +51,19 @@ class Song:
 	rating = None
 	album_rating = None
 	play_count = None
+	skip_count = None
+	skip_date = None
 	location = None
 	compilation = None
 	grouping = None
 	lastplayed = None
 	length = None
-	
+
 	#title = property(getTitle,setTitle)
-	
+
 	def __iter__(self):
 		for attr, value in self.__dict__.iteritems():
 			yield attr, value
-		
+
 	def ToDict(self):
 		return {key: value for (key, value) in self}
