@@ -54,7 +54,7 @@ pyitunes counts **all** tracks.
 
 Version 0.2 adds the ability to get playlists. However, the songs dictionary is keyed on TrackID (as coded in iTunes xml).
 Playlists are lists of Song objects, with their order noted as a `playlist_order` attribute.
-(note that previously, playlists were lists of PlTrack objects, with their order noted as a `number` attribute. 
+(note that previously, playlists were lists of PlTrack objects, with their order noted as a `number` attribute.
 PlTracks have been removed in favor of modified Songs.)
 
 ### Attributes of the Song class:
@@ -86,6 +86,8 @@ location = None (String)
 compilation = None (Boolean)
 grouping = None (String)
 lastplayed = None (Time)
+skip_count = None (Integer)
+skip_date = None(Time)
 length = None (Integer)
 ```
 

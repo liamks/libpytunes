@@ -27,6 +27,8 @@ class Song:
 	compilation = None (Boolean)
 	grouping = None (String)
 	lastplayed = None (Time)
+	skip_count = None (Integer)
+	skip_date = None (Time)
 	length = None (Integer)
 	"""
 	name = None
