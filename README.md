@@ -14,13 +14,13 @@ from pyItunes import *
 l = Library("iTunes Music Library.xml")
 
 for id, song in l.songs.items():
-	if song.rating > 80:
-		print song.name
+	if song and song.rating > 80:
+		print(song.name)
 
 playlists=l.getPlaylistNames()
 
 for song in l.getPlaylist(playlists[0]).tracks:
-	print "[%d] %s - %s" % (song.number, song.artist, song.name)
+	print("[%d] %s - %s" % (song.number, song.artist, song.name))
 ```
 
 See below for available song attributes.
@@ -34,8 +34,8 @@ pl = XMLLibraryParser("iTunes Music Library.xml")
 l = Library(pl.dictionary)
 
 for song in l.songs:
-	if song.rating > 80:
-		print song.name
+	if song and song.rating > 80:
+		print(song.name)
 ```
 
 
