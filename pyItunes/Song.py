@@ -2,6 +2,7 @@ class Song:
 	"""
 	Song Attributes:
 	name (String)
+	track_id (Integer)
 	artist (String)
 	album_artist (String)
 	composer = None (String)
@@ -32,6 +33,7 @@ class Song:
 	length = None (Integer)
 	"""
 	name = None
+	track_id = None
 	artist = None
 	album_artist = None
 	composer = None

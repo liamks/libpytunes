@@ -38,6 +38,7 @@ class Library:
 		for trackid,attributes in self.il['Tracks'].items():
 			s = Song()
 			s.name = attributes.get('Name')
+			s.track_id = int(attributes.get('Track ID'))
 			s.artist = attributes.get('Artist')
 			s.album_artist = attributes.get('Album Artist')
 			s.composer = attributes.get('Composer')
