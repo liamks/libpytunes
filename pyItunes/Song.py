@@ -22,6 +22,7 @@ class Song:
 	sample_rate = None (Integer)
 	comments = None (String)
 	rating = None (Integer)
+	rating_computed = None (Boolean)
 	album_rating = None (Integer)
 	play_count = None (Integer)
 	location = None (String)
@@ -53,6 +54,7 @@ class Song:
 	sample_rate = None
 	comments = None
 	rating = None
+	rating_computed = None
 	album_rating = None
 	play_count = None
 	skip_count = None

@@ -68,6 +68,7 @@ class Library:
 			s.comments = attributes.get("Comments")
 			if attributes.get('Rating'):
 				s.rating = int(attributes.get('Rating'))
+			s.rating_computed = 'Rating Computed' in attributes
 			if attributes.get('Play Count'):
 				s.play_count = int(attributes.get('Play Count'))
 			if attributes.get('Location'):
