@@ -108,3 +108,12 @@ You can also convert songs directly to Dictionaries with the ToDict() Method.
 ```
 SongDictionary = SongItem.ToDict()
 ```
+
+### Attributes of the Playlist class:
+```
+name (String)
+tracks (List[Song]) 
+is_folder = False (Boolean)
+playlist_persistent_id = None (String)
+parent_persistent_id = None (String)
+```
