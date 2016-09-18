@@ -26,6 +26,7 @@ class Song:
 	album_rating = None (Integer)
 	play_count = None (Integer)
 	location = None (String)
+	location_escaped = None (String)
 	compilation = None (Boolean)
 	grouping = None (String)
 	lastplayed = None (Time)
@@ -60,6 +61,7 @@ class Song:
 	skip_count = None
 	skip_date = None
 	location = None
+	location_escaped = None
 	compilation = None
 	grouping = None
 	lastplayed = None

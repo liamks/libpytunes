@@ -72,7 +72,8 @@ class Library:
 			if attributes.get('Play Count'):
 				s.play_count = int(attributes.get('Play Count'))
 			if attributes.get('Location'):
-				s.location = attributes.get('Location')
+				s.location_escaped = attributes.get('Location')
+				s.location = s.location_escaped
 				s.location = urlparse.unquote(urlparse.urlparse(attributes.get('Location')).path[1:])
 				s.location = s.location.decode('utf-8') if PY2 else s.location # fixes bug #19
 				if ( self.musicPathXML is not None and self.musicPathSystem is not None ):
