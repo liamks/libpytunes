@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="pyItunes",
-    version="1.3",
+    version="1.4",
     license='MIT',
     author="Liam Kaufman",
     author_email="",
