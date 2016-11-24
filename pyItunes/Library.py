@@ -71,6 +71,12 @@ class Library:
 			s.rating_computed = 'Rating Computed' in attributes
 			if attributes.get('Play Count'):
 				s.play_count = int(attributes.get('Play Count'))
+			if attributes.get('Album Rating'):
+				s.album_rating = attributes.get('Album Rating')
+			if attributes.get('Album Rating Computed'):
+				s.album_rating_computed = attributes.get('Album Rating Computed')
+			if attributes.get('Persistent ID'):
+				s.persistent_id = attributes.get('Persistent ID')
 			if attributes.get('Location'):
 				s.location_escaped = attributes.get('Location')
 				s.location = s.location_escaped
