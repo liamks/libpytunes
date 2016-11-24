@@ -87,6 +87,14 @@ class Library:
 				s.skip_date = time.strptime(str(attributes.get('Skip Date')),format)
 			if attributes.get('Total Time'):
 				s.length = int(attributes.get('Total Time'))
+			if attributes.get('Track Type'):
+				s.track_type = attributes.get('Track Type')
+			if attributes.get('Podcast'):
+				s.podcast = attributes.get('Podcast')
+			if attributes.get('Movie'):
+				s.movie = attributes.get('Movie')
+			if attributes.get('Has Video'):
+				s.has_video = attributes.get('Has Video')
 			if attributes.get('Grouping'):
 				s.grouping = attributes.get('Grouping')
 			if self.filesOnly==True and attributes.get('Track Type') == 'File':
