@@ -33,6 +33,10 @@ class Song:
 	skip_count = None (Integer)
 	skip_date = None (Time)
 	length = None (Integer)
+	track_type = None (string)
+	podcast = None (Boolean)
+	movie = None (Boolean)
+	has_video = None (Boolean)
 	"""
 	name = None
 	track_id = None
@@ -66,6 +70,10 @@ class Song:
 	grouping = None
 	lastplayed = None
 	length = None
+	track_type = None
+	podcast = None
+	movie = None
+	has_video = None
 
 	#title = property(getTitle,setTitle)
 
