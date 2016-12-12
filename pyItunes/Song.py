@@ -35,6 +35,10 @@ class Song:
 	length = None (Integer)
 	persistent_id = None (string)
 	album_rating_computed = None (Boolean)
+	work = None (string)
+	movement_name = None (string)
+	movement_number = None (Integer)
+	movement_count = None (Integer)
 	"""
 	name = None
 	track_id = None
@@ -70,6 +74,10 @@ class Song:
 	length = None
 	persistent_id = None
 	album_rating_computed = None
+	work = None
+	movement_name = None
+	movement_number = None
+	movement_count = None
 
 	#title = property(getTitle,setTitle)
 
