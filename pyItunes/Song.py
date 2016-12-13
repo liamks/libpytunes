@@ -33,10 +33,10 @@ class Song:
 	skip_count = None (Integer)
 	skip_date = None (Time)
 	length = None (Integer)
-	persistent_id = None (string)
+	persistent_id = None (String)
 	album_rating_computed = None (Boolean)
-	work = None (string)
-	movement_name = None (string)
+	work = None (String)
+	movement_name = None (String)
 	movement_number = None (Integer)
 	movement_count = None (Integer)
 	"""
