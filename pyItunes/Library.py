@@ -38,6 +38,13 @@ class Library:
 		for trackid,attributes in self.il['Tracks'].items():
 			s = Song()
 			s.name = attributes.get('Name')
+
+			# Support classical music naming (Work+Movement Number+Movement Name) since iTunes 12.5
+			s.work = attributes.get('Work')
+			s.movement_number = attributes.get('Movement Number')
+			s.movement_count = attributes.get('Movement Count')
+			s.movement_name = attributes.get('Movement Name')
+
 			s.track_id = int(attributes.get('Track ID'))
 			s.artist = attributes.get('Artist')
 			s.album_artist = attributes.get('Album Artist')

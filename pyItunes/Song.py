@@ -33,8 +33,12 @@ class Song:
 	skip_count = None (Integer)
 	skip_date = None (Time)
 	length = None (Integer)
-	persistent_id = None (string)
+	persistent_id = None (String)
 	album_rating_computed = None (Boolean)
+	work = None (String)
+	movement_name = None (String)
+	movement_number = None (Integer)
+	movement_count = None (Integer)
 	"""
 	name = None
 	track_id = None
@@ -70,6 +74,10 @@ class Song:
 	length = None
 	persistent_id = None
 	album_rating_computed = None
+	work = None
+	movement_name = None
+	movement_number = None
+	movement_count = None
 
 	#title = property(getTitle,setTitle)
 
