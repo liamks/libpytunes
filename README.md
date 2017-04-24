@@ -40,6 +40,31 @@ for song in l.songs:
 			print(song.name)
 ```
 
+If your library is very large, reading the XML into memory could be quite slow. If you need to access the library repeatedly, Python's "pickle" can save a binary representation of the XML object to disk for much faster access (up to 10x faster). To use a pickled version, do something like this:
+
+```
+import os.path
+import pickle
+import time
+from pyItunes import Library
+
+lib_path = "/Users/[username]/Music/iTunes/iTunes Library.xml"
+pickle_file = "itl.p"
+expiry = 60 * 60  # Refresh pickled file if older than
+epoch_time = int(time.time())  # Now
+
+# Generate pickled version of database if stale or doesn't exist
+if not os.path.isfile(pickle_file) or os.path.getmtime(pickle_file) + expiry < epoch_time:
+    itl_source = Library(lib_path)
+    pickle.dump(itl_source, open(pickle_file, "wb"))
+
+itl = pickle.load(open(pickle_file, "rb"))
+
+for id, song in itl.songs.items():
+    if song and song.rating:
+        if song.rating > 80:
+            print("{n}, {r}".format(n=song.name, r=song.rating))
+```
 
 ## Notes
 
