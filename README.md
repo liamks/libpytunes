@@ -9,18 +9,19 @@ Contributions by Liam Kaufman (liamkaufman.com), Steven Miller (copart), dpchu, 
 ## Usage:
 
 ```
-from pyItunes import *
+from pyItunes import Library
 
-l = Library("iTunes Music Library.xml")
+l = Library("iTunes Library.xml")
 
 for id, song in l.songs.items():
-	if song and song.rating > 80:
-		print(song.name)
+    if song and song.rating:
+        if song.rating > 80:
+            print(song.name, song.rating)
 
 playlists=l.getPlaylistNames()
 
 for song in l.getPlaylist(playlists[0]).tracks:
-	print("[%d] %s - %s" % (song.number, song.artist, song.name))
+	print("[{t}] {a} - {n}".format(t=song.track_number, a=song.artist, n=song.name))
 ```
 
 See below for available song attributes.
@@ -28,14 +29,15 @@ See below for available song attributes.
 There is also a deprecated legacy method, which still works for now:
 
 ```
-from pyItunes import *
+from pyItunes import XMLLibraryParser, Library
 
-pl = XMLLibraryParser("iTunes Music Library.xml")
+pl = XMLLibraryParser("iTunes Library.xml")
 l = Library(pl.dictionary)
 
 for song in l.songs:
-	if song and song.rating > 80:
-		print(song.name)
+	if song and song.rating:
+		if song.rating > 80:
+			print(song.name)
 ```
 
 
@@ -44,7 +46,7 @@ for song in l.songs:
 Track counts may not match those shown in iTunes. e.g.:
 
 ```
-l = Library("iTunes Music Library.xml")
+l = Library("iTunes Library.xml")
 len(l.songs)
 ```
 
@@ -116,7 +118,7 @@ SongDictionary = SongItem.ToDict()
 ### Attributes of the Playlist class:
 ```
 name (String)
-tracks (List[Song]) 
+tracks (List[Song])
 is_folder = False (Boolean)
 playlist_persistent_id = None (String)
 parent_persistent_id = None (String)
