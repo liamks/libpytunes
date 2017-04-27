@@ -110,6 +110,10 @@ class Library:
 				s.has_video = attributes.get('Has Video')
 			if attributes.get('Grouping'):
 				s.grouping = attributes.get('Grouping')
+
+			s.loved = True if attributes.get('Loved') else False
+			s.album_loved = True if attributes.get('Album Loved') else False
+
 			if self.filesOnly==True and attributes.get('Track Type') == 'File':
 				if self.legacymode:
 					self.songs.append(s)
