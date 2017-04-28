@@ -86,12 +86,12 @@ class Library:
             s.skip_date = time.strptime(str(attributes.get('Skip Date')), format) if attributes.get('Skip Date') else None
             s.length = int(attributes.get('Total Time')) if attributes.get('Total Time') else None
             s.track_type = attributes.get('Track Type')
-            s.podcast = attributes.get('Podcast', False)
-            s.movie = attributes.get('Movie', False)
-            s.has_video = attributes.get('Has Video', False)
             s.grouping = attributes.get('Grouping')
-            s.loved = attributes.get('Loved', False)
-            s.album_loved = attributes.get('Album Loved', False)
+            s.podcast = 'Podcast' in attributes
+            s.movie = 'Movie' in attributes
+            s.has_video = 'Has Video' in attributes
+            s.loved = 'Loved' in attributes
+            s.album_loved = 'Album Loved' in attributes
 
             if self.filesOnly and attributes.get('Track Type') == 'File':
                 if self.legacymode:
