@@ -87,6 +87,7 @@ PlTracks have been removed in favor of modified Songs.)
 ### Attributes of the Song class:
 
 ```
+persistent_id (String)
 name (String)
 artist (String)
 album_artist (String)
