@@ -87,6 +87,7 @@ PlTracks have been removed in favor of modified Songs.)
 ### Attributes of the Song class:
 
 ```
+persistent_id (String)
 name (String)
 artist (String)
 album_artist (String)
@@ -111,7 +112,7 @@ album_rating = None (Integer)
 play_count = None (Integer)
 location = None (String)
 location_escaped = None (String)
-compilation = None (Boolean)
+compilation = False (Boolean)
 grouping = None (String)
 lastplayed = None (Time)
 skip_count = None (Integer)
@@ -121,6 +122,9 @@ work = None (String)
 movement_name = None (String)
 movement_number = None (Integer)
 movement_count = None (Integer)
+loved = False (Boolean)
+album_loved = False (Boolean)
+
 ```
 
 Songs retrieved as part of a playlist have an additional attribute:
