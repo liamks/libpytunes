@@ -26,20 +26,6 @@ for song in l.getPlaylist(playlists[0]).tracks:
 
 See below for available song attributes.
 
-There is also a deprecated legacy method, which still works for now:
-
-```
-from pyItunes import XMLLibraryParser, Library
-
-pl = XMLLibraryParser("iTunes Library.xml")
-l = Library(pl.dictionary)
-
-for song in l.songs:
-	if song and song.rating:
-		if song.rating > 80:
-			print(song.name)
-```
-
 If your library is very large, reading the XML into memory could be quite slow. If you need to access the library repeatedly, Python's "pickle" can save a binary representation of the XML object to disk for much faster access (up to 10x faster). To use a pickled version, do something like this:
 
 ```
