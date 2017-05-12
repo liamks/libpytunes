@@ -1,10 +1,12 @@
+import logging
+import plistlib
+from six import PY2
+from six.moves.urllib import parse as urlparse
+import time
+
 from pyItunes.Song import Song
 from pyItunes.Playlist import Playlist
-import time
-import plistlib
-from six.moves.urllib import parse as urlparse
-from six import PY2
-import logging
+
 
 logger = logging.getLogger(__name__)
 
