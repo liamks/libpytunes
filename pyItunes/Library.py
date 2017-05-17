@@ -25,15 +25,8 @@ class Library:
         self.musicPathXML = musicPathXML
         self.musicPathSystem = musicPathSystem
         self.filesOnly = filesOnly
-        if type(itunesxml) == str:
-            self.il = plistlib.readPlist(itunesxml)  # Much better support of xml special characters
-            self.legacymode = False
-            self.songs = {}
-        else:
-            self.il = {}
-            self.il['Tracks'] = itunesxml
-            self.legacymode = True
-            self.songs = []
+        self.il = plistlib.readPlist(itunesxml)  # Much better support of xml special characters
+        self.songs = {}
         self.getSongs()
 
     def getSongs(self):
@@ -95,54 +88,38 @@ class Library:
             s.loved = 'Loved' in attributes
             s.album_loved = 'Album Loved' in attributes
 
-            if self.filesOnly and attributes.get('Track Type') == 'File':
-                if self.legacymode:
-                    self.songs.append(s)
-                else:
-                    self.songs[int(trackid)] = s
-            elif not self.filesOnly:
-                if self.legacymode:
-                    self.songs.append(s)
-                else:
-                    self.songs[int(trackid)] = s
+            self.songs[int(trackid)] = s
 
-    def getPlaylistNames(self, ignoreList=(
+    def getPlaylistNames(self, ignoreList=[
         "Library", "Music", "Movies", "TV Shows", "Purchased", "iTunes DJ", "Podcasts"
-    )):
-        if (self.legacymode):
-            logger.info("getPlaylistNames is disabled in legacy mode.")
-            return []
-        else:
-            playlists = []
-            for playlist in self.il['Playlists']:
-                if playlist['Name'] not in ignoreList:
-                    playlists.append(playlist['Name'])
-            return playlists
+    ]):
+
+        playlists = []
+        for playlist in self.il['Playlists']:
+            if playlist['Name'] not in ignoreList:
+                playlists.append(playlist['Name'])
+        return playlists
 
     def getPlaylist(self, playlistName):
-        if (self.legacymode):
-            logger.info("getPlaylist is disabled in legacy mode.")
-            return Playlist(playlistName)
-        else:
-            for playlist in self.il['Playlists']:
-                if playlist['Name'] == playlistName:
-                    # id 	playlist_id 	track_num 	url 	title 	album 	artist 	length 	uniqueid
-                    p = Playlist(playlistName)
-                    p.is_folder = True if 'Folder' in playlist and playlist['Folder'] else False
-                    if 'Playlist Persistent ID' in playlist:
-                        p.playlist_persistent_id = playlist['Playlist Persistent ID']
-                    if 'Parent Persistent ID' in playlist:
-                        p.parent_persistent_id = playlist['Parent Persistent ID']
-                    tracknum = 1
-                    # Make sure playlist was not empty
-                    if 'Playlist Items' in playlist:
-                        for track in playlist['Playlist Items']:
-                            id = int(track['Track ID'])
-                            t = self.songs[id]
-                            t.playlist_order = tracknum
-                            tracknum += 1
-                            p.tracks.append(t)
-                    return p
+        for playlist in self.il['Playlists']:
+            if playlist['Name'] == playlistName:
+                # id 	playlist_id 	track_num 	url 	title 	album 	artist 	length 	uniqueid
+                p = Playlist(playlistName)
+                p.is_folder = True if 'Folder' in playlist and playlist['Folder'] else False
+                if 'Playlist Persistent ID' in playlist:
+                    p.playlist_persistent_id = playlist['Playlist Persistent ID']
+                if 'Parent Persistent ID' in playlist:
+                    p.parent_persistent_id = playlist['Parent Persistent ID']
+                tracknum = 1
+                # Make sure playlist was not empty
+                if 'Playlist Items' in playlist:
+                    for track in playlist['Playlist Items']:
+                        id = int(track['Track ID'])
+                        t = self.songs[id]
+                        t.playlist_order = tracknum
+                        tracknum += 1
+                        p.tracks.append(t)
+                return p
 
     def getPlaylistxspf(self, playlistName):
         global xspfAvailable

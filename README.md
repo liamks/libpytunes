@@ -2,7 +2,7 @@
 
 Created by Liam Kaufman (liamkaufman.com)
 
-Contributions by Liam Kaufman (liamkaufman.com), Steven Miller (copart), dpchu, selftext, z4r, pschorf, Mathew Bramson (mbramson), Roger Filmyer (rfilmyer), cktse
+Contributions by Liam Kaufman (liamkaufman.com), Steven Miller (copart), dpchu, selftext, z4r, pschorf, Mathew Bramson (mbramson), Roger Filmyer (rfilmyer), cktse, Scot Hacker (shacker)
 
 **Before using pyItunes it is recommended that you backup your Itunes Library XML file. Use pyItunes at your own risk - there is no guarantee that it works or will not blow-up your computer!**
 
@@ -11,7 +11,7 @@ Contributions by Liam Kaufman (liamkaufman.com), Steven Miller (copart), dpchu, 
 ```
 from pyItunes import Library
 
-l = Library("iTunes Library.xml")
+l = Library("/path/to/iTunes Library.xml")
 
 for id, song in l.songs.items():
     if song and song.rating:
@@ -54,21 +54,16 @@ for id, song in itl.songs.items():
 
 ## Notes
 
-Track counts may not match those shown in iTunes. e.g.:
+Track counts may not match those shown in iTunes. e.g. This may report a higher number than the song count shown in iTunes itself. :
 
 ```
 l = Library("iTunes Library.xml")
 len(l.songs)
 ```
 
-May report a higher number than the song count shown in iTunes itself. This is because
-iTunes does not count things like Podcasts and Voice Memos as "Music," whereas
-pyitunes counts **all** tracks.
+This is because iTunes does not count things like Podcasts and Voice Memos as "Music," whereas pyitunes counts **all** tracks.
 
-Version 0.2 adds the ability to get playlists. However, the songs dictionary is keyed on TrackID (as coded in iTunes xml).
-Playlists are lists of Song objects, with their order noted as a `playlist_order` attribute.
-(note that previously, playlists were lists of PlTrack objects, with their order noted as a `number` attribute.
-PlTracks have been removed in favor of modified Songs.)
+The songs dictionary is keyed on TrackID (as coded in iTunes xml). Playlists are lists of Song objects, with their order noted as a `playlist_order` attribute.
 
 ### Attributes of the Song class:
 
@@ -121,7 +116,7 @@ playlist_order = None (Integer)
 
 Song object attributes can be iterated through like this:
 ```
-for key,value in SongItem:
+for key, value in SongItem:
 	<interact with specific key,value pair>.
 ```
 
@@ -138,3 +133,6 @@ is_folder = False (Boolean)
 playlist_persistent_id = None (String)
 parent_persistent_id = None (String)
 ```
+
+### Legacy Mode
+Support for `legacymode` has been removed with version 1.5
