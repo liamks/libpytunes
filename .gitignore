@@ -1,2 +1,5 @@
 *.pyc
 *.iml
+/.DS_Store
+/.project
+/.pydevproject
