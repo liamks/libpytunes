@@ -5,7 +5,7 @@ class TestLibrary(unittest.TestCase):
      
     def setUp(self):
         
-        self.it_library = Library("./Test Library.xml")
+        self.it_library = Library("pyItunes/tests/Test Library.xml")
 
     def test_songs(self):
         
