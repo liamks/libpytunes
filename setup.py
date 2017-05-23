@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="libpytunes",
-    version="1.5",
+    version="1.5.1",
     license='MIT',
     author="Liam Kaufman",
     author_email="",
