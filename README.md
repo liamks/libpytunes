@@ -1,15 +1,15 @@
-# pyItunes
+# libpytunes
 
 Created by Liam Kaufman (liamkaufman.com)
 
 Contributions by Liam Kaufman (liamkaufman.com), Steven Miller (copart), dpchu, selftext, z4r, pschorf, Mathew Bramson (mbramson), Roger Filmyer (rfilmyer), cktse, Scot Hacker (shacker)
 
-**Before using pyItunes it is recommended that you backup your Itunes Library XML file. Use pyItunes at your own risk - there is no guarantee that it works or will not blow-up your computer!**
+**Before using libpytunes it is recommended that you backup your Itunes Library XML file. Use libpytunes at your own risk - there is no guarantee that it works or will not blow-up your computer!**
 
 ## Usage:
 
 ```
-from pyItunes import Library
+from libpytunes import Library
 
 l = Library("/path/to/iTunes Library.xml")
 
@@ -32,7 +32,7 @@ If your library is very large, reading the XML into memory could be quite slow. 
 import os.path
 import pickle
 import time
-from pyItunes import Library
+from libpytunes import Library
 
 lib_path = "/Users/[username]/Music/iTunes/iTunes Library.xml"
 pickle_file = "itl.p"
@@ -61,7 +61,7 @@ l = Library("iTunes Library.xml")
 len(l.songs)
 ```
 
-This is because iTunes does not count things like Podcasts and Voice Memos as "Music," whereas pyitunes counts **all** tracks.
+This is because iTunes does not count things like Podcasts and Voice Memos as "Music," whereas libpytunes counts **all** tracks.
 
 The songs dictionary is keyed on TrackID (as coded in iTunes xml). Playlists are lists of Song objects, with their order noted as a `playlist_order` attribute.
 

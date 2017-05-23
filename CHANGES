@@ -1,6 +1,5 @@
-pyItunes Changelog
+libpytunes Changelog
 ===============
-
 
 Version 1.3
 -----------
@@ -9,3 +8,7 @@ Version 1.3
 Version 1.5
 -----------
 - PEP 8 compliance, remove support for legacymode
+
+Version 1.5.1
+-----------
+- Renamed from pyItunes to libpytunes to avoid naming collision so we can distribute via pypi.
