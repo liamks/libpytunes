@@ -12,3 +12,7 @@ Version 1.5
 Version 1.5.1
 -----------
 - Renamed from pyItunes to libpytunes to avoid naming collision so we can distribute via pypi.
+
+Version 1.5.2
+-----------
+- Python 3 compatibility for the Song class, using six.
