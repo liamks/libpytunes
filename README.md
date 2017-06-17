@@ -1,3 +1,5 @@
+![Travis CI Master branch](https://travis-ci.org/liamks/libpytunes.svg?branch=master)
+
 # libpytunes
 
 Created by Liam Kaufman (liamkaufman.com)
