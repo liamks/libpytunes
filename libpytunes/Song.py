@@ -1,3 +1,6 @@
+from six import iteritems
+
+
 class Song:
     """
     Song Attributes:
@@ -80,7 +83,7 @@ class Song:
     movement_count = None
 
     def __iter__(self):
-        for attr, value in self.__dict__.iteritems():
+        for attr, value in iteritems(self.__dict__):
             yield attr, value
 
     def ToDict(self):
