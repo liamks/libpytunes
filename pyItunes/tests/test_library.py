@@ -1,5 +1,5 @@
 import unittest
-from pyItunes.Library import Library
+from libpytunes import Library
 import os
 
 class TestLibrary(unittest.TestCase):
