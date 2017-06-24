@@ -1,11 +1,11 @@
 import unittest
-from libpytunes.Library import Library
+from libpytunes import Library
+import os
 
 class TestLibrary(unittest.TestCase):
 
     def setUp(self):
-
-        self.it_library = Library("./Test Library.xml")
+        self.it_library = Library(os.path.join(os.path.dirname(__file__), "Test Library.xml"))
 
     def test_songs(self):
 
