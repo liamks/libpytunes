@@ -5,3 +5,5 @@ class Playlist:
         self.is_folder = False
         self.playlist_persistent_id = None
         self.parent_persistent_id = None
+        self.distinguished_kind = None
+        self.playlist_id = None

@@ -105,11 +105,13 @@ class Library:
             if playlist['Name'] == playlistName:
                 # id 	playlist_id 	track_num 	url 	title 	album 	artist 	length 	uniqueid
                 p = Playlist(playlistName)
+                p.playlist_id = playlist['Playlist ID']
                 p.is_folder = True if 'Folder' in playlist and playlist['Folder'] else False
                 if 'Playlist Persistent ID' in playlist:
                     p.playlist_persistent_id = playlist['Playlist Persistent ID']
                 if 'Parent Persistent ID' in playlist:
                     p.parent_persistent_id = playlist['Parent Persistent ID']
+                p.distinguished_kind = playlist.get('Distinguished Kind')
                 tracknum = 1
                 # Make sure playlist was not empty
                 if 'Playlist Items' in playlist:
