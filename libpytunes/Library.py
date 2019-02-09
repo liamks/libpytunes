@@ -110,6 +110,8 @@ class Library:
                 p.playlist_persistent_id = playlist.get('Playlist Persistent ID')
                 p.parent_persistent_id = playlist.get('Parent Persistent ID')
                 p.distinguished_kind = playlist.get('Distinguished Kind')
+                p.is_genius_playlist = True if playlist.get('Genius Track ID') else False
+                p.is_smart_playlist = True if playlist.get('Smart Info') and not playlist.get('Folder', False) else False
                 tracknum = 1
                 # Make sure playlist was not empty
                 if 'Playlist Items' in playlist:
