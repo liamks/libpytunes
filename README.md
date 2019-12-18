@@ -109,6 +109,9 @@ movement_number = None (Integer)
 movement_count = None (Integer)
 loved = False (Boolean)
 album_loved = False (Boolean)
+playlist_only = None (Bool)
+apple_music = None (Bool)
+protected = None (Bool)
 
 ```
 
