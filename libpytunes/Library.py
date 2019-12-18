@@ -33,6 +33,11 @@ class Library:
         format = "%Y-%m-%d %H:%M:%S"
         for trackid, attributes in self.il['Tracks'].items():
             s = Song()
+
+            # Naïve check for TV Shows, Movies, and Podcasts
+            if 'Series' in attributes or 'Movie' in attributes or 'Podcast' in attributes:
+                continue
+
             s.name = attributes.get('Name')
 
             # Support classical music naming (Work+Movement Number+Movement Name) since iTunes 12.5
@@ -87,6 +92,9 @@ class Library:
             s.has_video = 'Has Video' in attributes
             s.loved = 'Loved' in attributes
             s.album_loved = 'Album Loved' in attributes
+            s.playlist_only = 'Playlist Only' in attributes
+            s.apple_music = 'Apple Music' in attributes
+            s.protected = 'Protected' in attributes
 
             self.songs[int(trackid)] = s
 
