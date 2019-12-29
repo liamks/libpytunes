@@ -42,6 +42,9 @@ class Song:
     movement_name = None (String)
     movement_number = None (Integer)
     movement_count = None (Integer)
+    playlist_only = None (Bool)
+    apple_music = None (Bool)
+    protected = None (Bool)
     """
     name = None
     track_id = None
@@ -81,6 +84,9 @@ class Song:
     movement_name = None
     movement_number = None
     movement_count = None
+    playlist_only = None
+    apple_music = None
+    protected = None
 
     def __iter__(self):
         for attr, value in iteritems(self.__dict__):
