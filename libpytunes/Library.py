@@ -25,9 +25,14 @@ class Library:
         self.musicPathXML = musicPathXML
         self.musicPathSystem = musicPathSystem
         self.filesOnly = filesOnly
-        self.il = plistlib.readPlist(itunesxml)  # Much better support of xml special characters
+        self.il = Library.plistLoad(self, itunesxml)  # Much better support of xml special characters
         self.songs = {}
         self.getSongs()
+
+    def plistLoad(self, f):
+        with open(f, 'rb') as fp:
+            plst = plistlib.load(fp)
+        return plst
 
     def getSongs(self):
         format = "%Y-%m-%d %H:%M:%S"
