@@ -45,6 +45,7 @@ class Song:
     playlist_only = None (Bool)
     apple_music = None (Bool)
     protected = None (Bool)
+    disabled = False (Boolean)
     """
     name = None
     track_id = None
@@ -87,6 +88,7 @@ class Song:
     playlist_only = None
     apple_music = None
     protected = None
+    disabled = False
 
     def __iter__(self):
         for attr, value in iteritems(self.__dict__):
