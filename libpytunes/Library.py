@@ -92,6 +92,7 @@ class Library:
             s.playlist_only = 'Playlist Only' in attributes
             s.apple_music = 'Apple Music' in attributes
             s.protected = 'Protected' in attributes
+            s.disabled = 'Disabled' in attributes
 
             self.songs[int(trackid)] = s
 
