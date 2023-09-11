@@ -93,6 +93,8 @@ class Library:
             s.apple_music = 'Apple Music' in attributes
             s.protected = 'Protected' in attributes
             s.disabled = 'Disabled' in attributes
+            s.release_date = time.strptime(str(attributes.get('Release Date')), format) if attributes.get('Release Date') else None
+
 
             self.songs[int(trackid)] = s
 
