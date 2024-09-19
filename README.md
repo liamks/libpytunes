@@ -10,6 +10,27 @@ Contributions by Liam Kaufman (liamkaufman.com), Steven Miller (copart), dpchu, 
 
 If you don't see an .xml library file in `~/Music/iTunes`, you probably started using iTunes after version 12.2, and have never enabled sharing between iTunes and other apps. To generate one, go to iTunes Preferences | Advanced and select "Share iTunes Library XML with other applications." ([Apple docs](https://support.apple.com/en-us/HT201610))
 
+## Installation
+To install the libpytunes library, follow these steps:
+
+1. Clone the repository:
+```
+git clone https://github.com/liamks/libpytunes.git
+```
+2. Navigate to the project directory:
+```
+cd libpytunes
+```
+3. Install the required dependencies:
+```
+pip install -r requirements.txt
+```
+4. Install the library:
+```
+python setup.py install
+```
+These steps will install the library libpytunes using github page repository and can be used through imports in python projects
+
 ## Usage:
 
 ```
