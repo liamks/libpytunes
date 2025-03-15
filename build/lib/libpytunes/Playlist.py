@@ -1,19 +1,17 @@
-from six import iteritems
+from dataclasses import dataclass, field
 
+from .Song import Song
+
+@dataclass
 class Playlist:
-    is_folder = False
-    playlist_persistent_id = None
-    parent_persistent_id = None
+    is_folder: bool = False
+    persistent_id: int = None
+    parent_persistent_id: int = None
     distinguished_kind = None
-    playlist_id = None
+    playlist_id: int = None
+    name: str = None
 
-    def __init__(self, playListName=None):
-        self.name = playListName
-        self.tracks = []
+    is_genius_playlist: bool = False
+    is_smart_playlist: bool = False
 
-    def __iter__(self):
-        for attr, value in iteritems(self.__dict__):
-            yield attr, value
-
-    def ToDict(self):
-        return {key: value for (key, value) in self}
+    tracks: list[Song] = field(default_factory=lambda: [])
