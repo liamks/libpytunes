@@ -1,98 +1,58 @@
-from six import iteritems
+from dataclasses import dataclass
 
-
+@dataclass(eq=True, frozen=True)
 class Song:
-    """
-    Song Attributes:
-    name (String)
-    track_id (Integer)
-    artist (String)
-    album_artist (String)
-    composer = None (String)
-    album = None (String)
-    genre = None (String)
-    kind = None (String)
-    size = None (Integer)
-    total_time = None (Integer)
-    track_number = None (Integer)
-    track_count = None (Integer)
-    disc_number = None (Integer)
-    disc_count = None (Integer)
-    year = None (Integer)
-    date_modified = None (Time)
-    date_added = None (Time)
-    bit_rate = None (Integer)
-    sample_rate = None (Integer)
-    comments = None (String)
-    rating = None (Integer)
-    rating_computed = False (Boolean)
-    album_rating = None (Integer)
-    play_count = None (Integer)
-    location = None (String)
-    location_escaped = None (String)
-    compilation = False (Boolean)
-    grouping = None (String)
-    lastplayed = None (Time)
-    skip_count = None (Integer)
-    skip_date = None (Time)
-    length = None (Integer)
-    persistent_id = None (String)
-    album_rating_computed = False (Boolean)
-    work = None (String)
-    movement_name = None (String)
-    movement_number = None (Integer)
-    movement_count = None (Integer)
-    playlist_only = None (Bool)
-    apple_music = None (Bool)
-    protected = None (Bool)
-    disabled = False (Boolean)
-    """
-    name = None
-    track_id = None
-    artist = None
-    album_artist = None
-    composer = None
-    album = None
-    genre = None
-    kind = None
-    size = None
-    total_time = None
-    track_number = None
-    track_count = None
-    disc_number = None
-    disc_count = None
-    year = None
-    date_modified = None
-    date_added = None
-    bit_rate = None
-    sample_rate = None
-    comments = None
-    rating = None
-    rating_computed = None
-    album_rating = None
-    play_count = None
-    skip_count = None
-    skip_date = None
-    location = None
-    location_escaped = None
-    compilation = None
-    grouping = None
-    lastplayed = None
-    length = None
-    persistent_id = None
-    album_rating_computed = None
-    work = None
-    movement_name = None
-    movement_number = None
-    movement_count = None
-    playlist_only = None
-    apple_music = None
-    protected = None
-    disabled = False
+    name: str = None
+    track_id: int = None
+    artist: str = None
+    album_artist: str = None
+    composer: str = None
+    album: str = None
+    genre: str = None
+    kind: str = None
+    size: int = None
+    total_time: int = None
+    start_time: int = None
+    stop_time: int = None
+    track_number: int = None
+    track_count: int = None
+    disc_number: int = None
+    disc_count: int = None
+    year: int = None
+    date_modified: str = None  # (Time)
+    date_added: str = None  # (Time)
+    bit_rate: int = None
+    sample_rate: int = None
+    comments: str = None
+    rating: int = None
+    rating_computed: bool = False
+    album_rating: int = None
+    play_count: int = None
+    skip_count: int = None
+    skip_date: str = None  # (Time)
+    location: str = None
+    location_escaped: str = None
+    compilation: bool = False
+    grouping: str = None
+    lastplayed: str = None  # (Time)
+    length: int = None
+    track_type: str = None
+    podcast: bool = False
+    movie: bool = False
+    has_video: bool = False
+    loved: bool = False
+    album_loved: bool = False
+    persistent_id: str = None
+    album_rating_computed: bool = False
+    work: str = None
+    movement_name: str = None
+    movement_number: int = None
+    movement_count: int = None
+    playlist_only: bool = None
+    apple_music: bool = None
+    protected: bool = None
+    disabled: bool = False
+    release_date: str = None  # (Time)
 
-    def __iter__(self):
-        for attr, value in iteritems(self.__dict__):
-            yield attr, value
-
-    def ToDict(self):
-        return {key: value for (key, value) in self}
+    def __repr__(self):
+        return f'Song(name={self.name!r}, artist={self.artist!r}, track_id={self.track_id!r})'

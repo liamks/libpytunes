@@ -93,47 +93,57 @@ The songs dictionary is keyed on TrackID (as coded in iTunes xml). Playlists are
 ### Attributes of the Song class:
 
 ```
-persistent_id (String)
-name (String)
-artist (String)
-album_artist (String)
-composer = None (String)
-album = None (String)
-genre = None (String)
-kind = None (String)
-size = None (Integer)
-total_time = None (Integer)
-track_number = None (Integer)
-track_count = None (Integer)
-disc_number = None (Integer)
-disc_count = None (Integer)
-year = None (Integer)
-date_modified = None (Time)
-date_added = None (Time)
-bit_rate = None (Integer)
-sample_rate = None (Integer)
-comments = None (String)
-rating = None (Integer)
-album_rating = None (Integer)
-play_count = None (Integer)
-location = None (String)
-location_escaped = None (String)
-compilation = False (Boolean)
-grouping = None (String)
-lastplayed = None (Time)
-skip_count = None (Integer)
-skip_date = None(Time)
-length = None (Integer)
-work = None (String)
-movement_name = None (String)
-movement_number = None (Integer)
-movement_count = None (Integer)
-loved = False (Boolean)
-album_loved = False (Boolean)
-playlist_only = None (Bool)
-apple_music = None (Bool)
-protected = None (Bool)
-
+name: str = None
+track_id: int = None
+artist: str = None
+album_artist: str = None
+composer: str = None
+album: str = None
+genre: str = None
+kind: str = None
+size: int = None
+total_time: int = None
+start_time: int = None
+stop_time: int = None
+track_number: int = None
+track_count: int = None
+disc_number: int = None
+disc_count: int = None
+year: int = None
+date_modified: str = None  # (Time)
+date_added: str = None  # (Time)
+bit_rate: int = None
+sample_rate: int = None
+comments: str = None
+rating: int = None
+rating_computed: bool = False
+album_rating: int = None
+play_count: int = None
+skip_count: int = None
+skip_date: str = None  # (Time)
+location: str = None
+location_escaped: str = None
+compilation: bool = False
+grouping: str = None
+lastplayed: str = None  # (Time)
+length: int = None
+track_type: str = None
+podcast: bool = False
+movie: bool = False
+has_video: bool = False
+loved: bool = False
+album_loved: bool = False
+persistent_id: str = None
+album_rating_computed: bool = False
+work: str = None
+movement_name: str = None
+movement_number: int = None
+movement_count: int = None
+playlist_only: bool = None
+apple_music: bool = None
+protected: bool = None
+disabled: bool = False
+release_date: str = None  # (Time)
 ```
 
 Songs retrieved as part of a playlist have an additional attribute:
@@ -148,18 +158,20 @@ for key, value in SongItem:
 	<interact with specific key,value pair>.
 ```
 
-You can also convert songs directly to Dictionaries with the ToDict() Method.
-```
-SongDictionary = SongItem.ToDict()
-```
 
 ### Attributes of the Playlist class:
 ```
-name (String)
-tracks (List[Song])
-is_folder = False (Boolean)
-playlist_persistent_id = None (String)
-parent_persistent_id = None (String)
+is_folder: bool = False
+persistent_id: int = None
+parent_persistent_id: int = None
+distinguished_kind = None
+playlist_id: int = None
+name: str = None
+
+is_genius_playlist: bool = False
+is_smart_playlist: bool = False
+
+tracks: list[Song] = []
 ```
 
 ### Legacy Mode

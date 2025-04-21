@@ -1,5 +1,7 @@
+*.egg
 *.pyc
 *.iml
+.cache
 /.DS_Store
 /.project
 /.pydevproject
