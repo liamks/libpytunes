@@ -10,13 +10,6 @@ from libpytunes.Playlist import Playlist
 
 logger = logging.getLogger(__name__)
 
-try:
-    import xspf
-    xspfAvailable = True
-except ImportError:
-    xspfAvailable = False
-    pass
-
 
 class Library:
     def __init__(self, itunesxml, musicPathXML=None, musicPathSystem=None, filesOnly=False):
@@ -142,19 +135,3 @@ class Library:
                         tracknum += 1
                         p.tracks.append(t)
                 return p
-
-    def getPlaylistxspf(self, playlistName):
-        global xspfAvailable
-        if (xspfAvailable):
-            x = xspf.Xspf()
-            for playlist in self.il['Playlists']:
-                if playlist['Name'] == playlistName:
-                    x.title = playlistName
-                    x.info = ""
-                    for track in playlist['Playlist Items']:
-                        id = int(track['Track ID'])
-                        x.add_track(title=self.songs[id].name, creator="", location=self.songs[id].location)
-                    return x.toXml()
-        else:
-            logger.warning("xspf library missing, go to https://github.com/alastair/xspf to install.")
-            return None
